@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#10131e" />
+  <title>Neon Breaker — Brick by brick</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Neon Breaker home">
+        <span class="brand-mark"><i></i><i></i><i></i><i></i></span>
+        <span>NEON<span class="brand-light">BREAKER</span></span>
+      </a>
+      <div class="top-meta"><span class="live-dot"></span> ARCADE MODE <span class="meta-divider">/</span> <span id="statusText">READY TO PLAY</span></div>
+      <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound" title="Toggle sound"><span id="soundIcon">♫</span></button>
+    </header>
+
+    <section class="game-layout" aria-label="Brick breaker game">
+      <aside class="side-panel left-panel">
+        <div class="section-label">YOUR MISSION</div>
+        <h1>Break the<br><span>pattern.</span></h1>
+        <p class="intro-copy">Clear every brick. Catch the good stuff. Keep the ball in play.</p>
+        <div class="mission-card">
+          <div class="card-heading"><span class="tiny-spark">✳</span> POWER-UPS</div>
+          <div class="power-row"><span class="power-icon widen">↔</span><span><b>WIDE BAR</b><small>More paddle, more control</small></span></div>
+          <div class="power-row"><span class="power-icon multi">✣</span><span><b>MULTI BALL</b><small>Three's company</small></span></div>
+          <div class="power-row"><span class="power-icon fire">✦</span><span><b>FIREBALL</b><small>Burns through bricks</small></span></div>
+          <div class="power-row"><span class="power-icon ghost">◉</span><span><b>GHOST BALL</b><small>Passes right through</small></span></div>
+        </div>
+        <div class="tip"><span class="tip-star">✳</span><span><b>Pro tip</b><br>Catch falling power-ups with your paddle.</span></div>
+      </aside>
+
+      <section class="arcade" aria-label="Game board">
+        <div class="arcade-top">
+          <div class="stat-block"><span class="stat-label">SCORE</span><strong id="score">000000</strong></div>
+          <div class="stat-block centered"><span class="stat-label">STAGE</span><strong><span id="level">01</span><small> / 03</small></strong></div>
+          <div class="stat-block right"><span class="stat-label">LIVES</span><strong class="hearts" id="lives">♥ ♥ ♥</strong></div>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="game" width="800" height="600" aria-label="Breakout game board"></canvas>
+          <div class="screen-overlay" id="overlay">
+            <div class="overlay-content">
+              <div class="overlay-kicker"><span class="live-dot"></span> READY PLAYER ONE</div>
+              <h2 id="overlayTitle">Let's<br><em>break out.</em></h2>
+              <p id="overlayText">A little aim. A little luck.<br>A whole lot of bricks.</p>
+              <button class="play-button" id="playButton"><span id="buttonText">START GAME</span><span class="button-arrow">↗</span></button>
+              <div class="overlay-hint">PRESS <kbd>SPACE</kbd> OR TAP TO LAUNCH</div>
+            </div>
+            <div class="overlay-orbit orbit-one"></div><div class="overlay-orbit orbit-two"></div>
+          </div>
+          <div class="level-toast" id="levelToast">STAGE CLEAR <span>✦</span></div>
+        </div>
+        <div class="arcade-bottom">
+          <div class="controls-hint"><span class="keycap">←</span><span class="keycap">→</span><span class="hint-copy">MOVE PADDLE</span><span class="hint-sep"></span><span class="keycap wide-key">SPACE</span><span class="hint-copy">LAUNCH / PAUSE</span></div>
+          <div class="board-coords"><span>SECTOR 07.24</span><span class="coord-dot">·</span><span>EST. 1986</span></div>
+        </div>
+      </section>
+
+      <aside class="side-panel right-panel">
+        <div class="section-label">THE SCOREBOARD</div>
+        <div class="best-score"><span class="score-label">PERSONAL BEST</span><strong id="bestScore">000000</strong><span class="best-badge">✦ TOP RUN</span></div>
+        <div class="progress-block">
+          <div class="progress-heading"><span>BRICKS LEFT</span><b id="brickCount">24</b></div>
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="progress-caption"><span>KEEP IT GOING</span><span id="progressPercent">0%</span></div>
+        </div>
+        <div class="streak-card"><div class="streak-icon">✳</div><div><span class="score-label">CURRENT STREAK</span><strong><span id="streak">0</span><small> BRICKS</small></strong></div></div>
+        <div class="divider"></div>
+        <div class="howto"><span class="section-label">HOW TO PLAY</span><p>Use your paddle to bounce the ball and clear the board. Don't let it drop!</p><div class="touch-hint"><span>⌖</span> MOUSE, ARROWS OR TOUCH</div></div>
+        <button class="restart-link" id="restartButton"><span>↻</span> RESTART RUN</button>
+      </aside>
+    </section>
+
+    <footer class="footer"><span>BUILT FOR THE JOY OF ONE MORE ROUND.</span><span class="footer-center">NO QUARTERS REQUIRED <span>♥</span></span><span>© NEON ARCADE CLUB</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
